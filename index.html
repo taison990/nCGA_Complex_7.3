@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Molecular Dynamics Viewer</title>
+  <script src="https://unpkg.com/ngl"></script>
+</head>
+<body style="margin:0">
+  <div id="viewport" style="width:100%; height:100vh;"></div>
+  <script>
+    var stage = new NGL.Stage("viewport");
+
+    // 載入PDB結構
+    stage.loadFile("all_start.pdb", { defaultRepresentation: true }).then(function (o) {
+      // 加入XTC軌跡
+      o.addTrajectory("md_0_10_fit.xtc");
+    });
+  </script>
+</body>
+</html>
